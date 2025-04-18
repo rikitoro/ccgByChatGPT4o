@@ -68,5 +68,8 @@ def fullSentence : Derivation S :=
 #eval getSem fullSentence
 -- => love john mary （実際はラムダ項: ((λx.λy.love y x) mary) john）
 
-#eval repr (getSem fullSentence)
--- lam-app-app などの形でラムダ式の意味合成が型安全に出力される
+-- Sem.app
+--   (Sem.app
+--     (Sem.lam "x" (Sem.lam "y" (Sem.app (Sem.app (Sem.const "love") (Sem.var "y")) (Sem.var "x"))))
+--     (Sem.const "mary"))
+--   (Sem.const "john")
